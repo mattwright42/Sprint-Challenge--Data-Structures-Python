@@ -17,9 +17,16 @@ duplicates = []
 #        if name_1 == name_2:
 #            duplicates.append(name_1)
 
-for name_1 in names_1:
-    if name_1 in names_2:
-        duplicates.append(name_1)
+# This one takes about 2 seconds to run
+# for name_1 in names_1:
+#    if name_1 in names_2:
+#        duplicates.append(name_1)
+
+# Trying an attempt using sets - runtime = 0.005786895751953125 seconds
+set_1 = set(names_1)
+set_2 = set(names_2)
+
+duplicates.append(str(set_1 & set_2))
 
 end_time = time.time()
 print(f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
